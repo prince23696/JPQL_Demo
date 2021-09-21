@@ -3,6 +3,7 @@ package com.JPQL_Demo.JPQL_Demo_Project.Service;
 import com.JPQL_Demo.JPQL_Demo_Project.Entity.Employee;
 import com.JPQL_Demo.JPQL_Demo_Project.Repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -49,8 +50,23 @@ public class EmployeeServiceImpl implements EmployeeService {
         return (List<Employee>) employeeRepository.findByName(name);
     }
 
-    /*@Override
-    public List<Employee> findEmployeeUsingNativeQuery(String name) {
-        return employeeRepository.findEmployeesUsingNativeQuery(name);
-    }*/
+    @Override
+    public List<Employee> findBySalaryLessThan(int salary) {
+        return (List<Employee>) employeeRepository.findBySalaryLessThan(salary);
+    }
+
+    @Override
+    public List<Employee> findBySalaryBetween(int salary, int salary1) {
+        return (List<Employee>) employeeRepository.findBySalaryBetween(salary, salary1);
+    }
+
+    @Override
+    public List<Employee> findByStartWith(String name) {
+        return (List<Employee>) employeeRepository.findByStartWith(name);
+    }
+
+    @Override
+    public List<Employee> findByNative(/*String name*/) {
+        return (List<Employee>) employeeRepository.findByNative(/*name*/);
+    }
 }

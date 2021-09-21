@@ -9,6 +9,7 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int e_id;
+    @Column(name = "E_name")
     private String ename;
     private int salary;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
