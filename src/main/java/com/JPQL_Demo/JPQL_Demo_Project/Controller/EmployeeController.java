@@ -57,13 +57,25 @@ public class EmployeeController {
         return employeeService.findBySalaryBetween(salary, salary1);
     }
 
+    @GetMapping("/findBySalaryOrName/{salary}/{name}")
+    public List<Employee> findBySalaryOrName(@PathVariable int salary, @PathVariable String name) {
+        return employeeService.findBySalaryOrName(salary, name);
+    }
+
     @GetMapping("/findByStartWith/{name}")
     public List<Employee> findByStartWith(@PathVariable String name) {
         return employeeService.findByStartWith(name);
     }
 
+
     @GetMapping("/findByNative")
-    public List<Employee> findByNative(/*@PathVariable String name*/) {
-        return employeeService.findByNative(/*name*/);
+    public List<Employee> findByNative() {
+        return employeeService.findByNative();
     }
+
+    @GetMapping("/findByNameNative/{name}")
+    public List<Employee> findByNameNative(@PathVariable String name) {
+        return employeeService.findByNameNative(name);
+    }
+
 }

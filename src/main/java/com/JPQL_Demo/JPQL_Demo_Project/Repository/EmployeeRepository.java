@@ -20,9 +20,17 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
     @Query("select e from Employee e where e.salary between ?1 and ?2")
     List<Employee> findBySalaryBetween(int salary, int salary1);
 
+    @Query("select e from Employee e where e.salary<= ?1 or e.ename=?2")
+    List<Employee> findBySalaryOrName(int salary, String name);
+
     @Query("select e from Employee e where e.ename like ?1%")
     List<Employee> findByStartWith(String name);
 
-    @Query(value = "select * from Employee  ", nativeQuery = true)
+    @Query(value = "select * from employee", nativeQuery = true)
     List<Employee> findByNative();
+
+    @Query(value = "select * from Employee e where e.e_name=?1 ",
+            /*countQuery = "select count(e_id) from employee e where e.ename= ?1,"*/ nativeQuery = true)
+    List<Employee> findByNameNative(String name);
+
 }

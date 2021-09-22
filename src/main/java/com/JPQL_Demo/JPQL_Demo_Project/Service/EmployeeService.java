@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface EmployeeService {
 
-    public List<Employee> getAllEmployee();
+   public List<Employee> getAllEmployee();
 
     public Employee getEmployee(int id);
 
@@ -18,6 +18,7 @@ public interface EmployeeService {
 
     public String deleteEmployee(int id);
 
+    //JPQl QUERY
     public List<Employee> findByName(String name);
 
     public List<Employee> findBySalaryLessThan(int salary);
@@ -26,6 +27,11 @@ public interface EmployeeService {
 
     public List<Employee> findByStartWith(String name);
 
+    public List<Employee> findBySalaryOrName(int salary, String name);
+
+    //JPQL NATIVE QUERY
     public List<Employee> findByNative();
+
+    public List<Employee> findByNameNative(String name);
 
 }
