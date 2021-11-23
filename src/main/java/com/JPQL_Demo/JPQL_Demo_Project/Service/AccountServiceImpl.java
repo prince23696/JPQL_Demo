@@ -3,6 +3,7 @@ package com.JPQL_Demo.JPQL_Demo_Project.Service;
 import com.JPQL_Demo.JPQL_Demo_Project.Entity.Account;
 import com.JPQL_Demo.JPQL_Demo_Project.Entity.Employee;
 import com.JPQL_Demo.JPQL_Demo_Project.Repository.AccountRepository;
+import com.JPQL_Demo.JPQL_Demo_Project.Repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +12,8 @@ import java.util.List;
 @Service
 public class AccountServiceImpl implements AccountService {
 
-
+    @Autowired
+    EmployeeRepository employeeRepository;
     @Autowired
     AccountRepository accountRepository;
 
@@ -29,8 +31,8 @@ public class AccountServiceImpl implements AccountService {
     public String addAccount(Account account) {
         accountRepository.save(account);
         return "Account Added Successfully";
-
     }
+
 
     @Override
     public Account updateAccount(int id, Account account) {
@@ -46,5 +48,10 @@ public class AccountServiceImpl implements AccountService {
     public String deleteAccount(int id) {
         accountRepository.deleteById(id);
         return "Account deleted from database id=" + id;
+    }
+
+    @Override
+    public List<Employee> findByEmployeeRecord1() {
+        return  accountRepository.findByEmployeeRecord1();
     }
 }

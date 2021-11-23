@@ -73,6 +73,26 @@ public class EmployeeController {
         return employeeService.findByNative();
     }
 
+    @GetMapping("/findByEmployeeRecord")
+    public List<Employee> findByEmployeeRecord() {
+        return employeeService.findByEmployeeRecord();
+    }
+
+    @GetMapping("/findByEmployeeRecordById/{id}")
+    public List<Employee> findByEmployeeRecordById(@PathVariable int id) {
+        return employeeService.findByEmployeeRecordById(id);
+    }
+
+    @GetMapping("/findByAccountRecord")
+    public List<Employee> findByAccountRecord() {
+        return employeeService.findByAccountRecord();
+    }
+
+    @GetMapping("/findByAccountRecordById/{id}")
+    public List<Employee> findByAccountRecordById(@PathVariable int id) {
+        return employeeService.findByAccountRecordById(id);
+    }
+
     @GetMapping("/findByNameNative/{name}")
     public List<Employee> findByNameNative(@PathVariable String name) {
         return employeeService.findByNameNative(name);

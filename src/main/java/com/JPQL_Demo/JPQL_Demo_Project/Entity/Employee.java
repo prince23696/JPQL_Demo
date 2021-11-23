@@ -1,5 +1,7 @@
 package com.JPQL_Demo.JPQL_Demo_Project.Entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -12,7 +14,8 @@ public class Employee {
     @Column(name = "E_name")
     private String ename;
     private int salary;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
+    @JsonManagedReference
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee",fetch = FetchType.EAGER)
     private List<Account> accounts;
 
     public Employee() {

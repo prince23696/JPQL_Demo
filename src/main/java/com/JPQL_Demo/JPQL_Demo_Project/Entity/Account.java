@@ -1,5 +1,7 @@
 package com.JPQL_Demo.JPQL_Demo_Project.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -9,7 +11,8 @@ public class Account {
     private int a_id;
     private String a_number;
     private String type;
-   @ManyToOne(cascade = CascadeType.ALL)
+    @JsonBackReference
+    @ManyToOne(cascade = CascadeType.ALL)
     private Employee employee;
 
     public Account() {

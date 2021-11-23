@@ -75,6 +75,26 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
+    public List<Employee> findByEmployeeRecord() {
+        return (List<Employee>) employeeRepository.findByEmployeeRecord();
+    }
+
+    @Override
+    public List<Employee> findByEmployeeRecordById(int id) {
+        return employeeRepository.findByEmployeeRecordById(id);
+    }
+
+    @Override
+    public List<Employee> findByAccountRecord() {
+        return (List<Employee>) employeeRepository.findByAccountRecord();
+    }
+
+    @Override
+    public List<Employee> findByAccountRecordById(int id) {
+        return employeeRepository.findByAccountRecordById(id);
+    }
+
+    @Override
     public List<Employee> findByNameNative(String name) {
         return (List<Employee>) employeeRepository.findByNameNative(name);
     }

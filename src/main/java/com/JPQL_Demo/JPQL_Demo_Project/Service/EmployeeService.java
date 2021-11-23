@@ -1,14 +1,12 @@
 package com.JPQL_Demo.JPQL_Demo_Project.Service;
 
 import com.JPQL_Demo.JPQL_Demo_Project.Entity.Employee;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
 public interface EmployeeService {
 
-   public List<Employee> getAllEmployee();
+    public List<Employee> getAllEmployee();
 
     public Employee getEmployee(int id);
 
@@ -31,6 +29,14 @@ public interface EmployeeService {
 
     //JPQL NATIVE QUERY
     public List<Employee> findByNative();
+
+    public List<Employee> findByEmployeeRecord();
+
+    public List<Employee> findByEmployeeRecordById(int id);
+
+    public List<Employee> findByAccountRecord();
+
+    public List<Employee> findByAccountRecordById(int id);
 
     public List<Employee> findByNameNative(String name);
 
